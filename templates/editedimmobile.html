@@ -1,0 +1,35 @@
+<title>Edit Immobile</title>
+{% extends "main.html" %} {% block content %}
+        <h1> Edit Immobile </h1>
+
+        <form action="{{ url_for('editImmobile',city_id = city_id, immobile_id=item.id)}}" method = 'post'>
+            <dl>
+                <dt>Address:</dt>
+                    <dd><input type ='text' size='30' name='address' placeholder = '{{item.address }}'></dd>
+                <dt>Description:</dt>
+                    <dd><input name = 'description' placeholder = '{{item.description }}'></input></dd>
+                <dt>Squarefeet:</dt>
+                    <dd><input type = 'text' name='squarefeet' placeholder = '{{item.squarefeet}}'></dd>
+                <dt>Bedrooms:</dt>
+                    <dd><input type = 'text' name='bedrooms' placeholder = '{{item.bedrooms}}'></dd>
+                <dt>Bathrooms:</dt>
+                    <dd><input type = 'text' name='bathrooms' placeholder = '{{item.bathrooms}}'></dd>
+            </dl>
+
+            <button type="submit" class="btn btn-info" id="submit" type="submit">
+                <i class="material-icons">
+                        save_alt
+                </i>
+                Save
+            </button>
+        </form>
+        <a href = "{{url_for('showImmobile', city_id=city_id)}}">
+            <button class="btn btn-danger">
+                <i class="material-icons">
+                        close
+                </i>
+                Cancel
+            </button>
+        </a>
+        {% endblock %}
+

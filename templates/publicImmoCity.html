@@ -1,0 +1,73 @@
+
+<title>Immobiles from {{city.name}}</title>
+{% extends "main.html" %} {% block content %}
+                <aside role="complementary" class="col-md-4">
+                    <h2>Cities available:</h2>
+                    {% for city in city_list %}
+                    <div>
+                        <a href="{{url_for('showImmobile', city_id = city.id)}}">
+                            <h3 class="city-list text-left">{{city.name}}</h3>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    <a href="{{url_for('showCities')}}">
+                        <button class="btn btn-link">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Show all cities
+                        </button>
+                    </a>
+                </aside>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h1>{{ city.name }}</h1>
+                            <a href = "{{url_for('cityImmobileJSON', city_id = city.id)}}">
+                                <button class="btn btn-info">
+                                    <i class="material-icons">
+                                        location_searching
+                                    </i>
+                                    JSON
+                                </button>
+                            </a> 
+                        </div>
+                        <div class="col-md-2">
+                            <figure class="creator">
+                                <img src="{{creator.picture}}">
+                                <h5>{{creator.name}}</h5>
+                            </figure>
+                        </div>
+                
+                    </div>
+                    <hr>
+                    {% for i in immobile %}
+                        <div class="row">
+                            <picture class="col-md-4 text-center">
+                                <img height="200" src="{{url_for('static', filename='home_sale.jpg')}}">
+                            </picture>
+                            <div class="col-md-4">
+                                {{i.address}}<br>
+                                {{i.description}}<br>
+                                {{i.squarefeet}}<br>
+                                {{i.bedrooms}}<br>
+                                {{i.bathrooms}}<br>
+                                <a href = "{{url_for('showImmobileDetails', city_id = city.id, immobile_id = i.id)}}">
+                                    <button class="btn btn-info">
+                                        <i class="material-icons">
+                                            search
+                                        </i>
+                                        See the details
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                    <div>
+                                        <iframe width="100%" height="200px" src="https://maps.google.com/maps?width=100%&amp;&amp;hl=en&amp;q={{i.address}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                    </div>
+                            </div>
+                        </div>
+                        <br>
+                    {% endfor %}
+                </div> 
+{% endblock %}

@@ -1,0 +1,168 @@
+*{
+    /*border: 0.1px solid red !important;*/
+    font-family: 'Confortaa', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+body, html{
+    background-color: #f5f6fa;
+    margin: 0%;
+
+}
+
+img, video{
+    width: 100%;
+}
+
+h3{
+    text-align: center;
+}
+
+section{
+    padding: 3px;
+}
+
+.container{
+    padding: 0px;
+}
+
+.header{
+    position: relative;
+    display: block;
+}
+
+.backheader {
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.buttonlogin {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: transparent;
+    border-radius: 2px;
+    color: #bdc3c7;
+    cursor:pointer;
+    overflow: hidden;
+    padding: 10px 50px 10px 50px;
+    outline: none;
+    opacity: 0.7;
+}
+
+.buttonlogin:hover{
+    opacity: 0.5;
+
+}
+
+.creator {
+	padding-right: 20px;
+	margin-top: 10px;
+	text-align: right;
+	float:right;
+}
+.creator img {
+	width: 100px;
+	border-radius: 50%;
+}
+.creator figcaption {
+	font-size: 14px;
+	color: #7B7573;
+	font-weight: 400;
+	margin-top: -20px;
+}
+
+.header-city{
+    background-color: #9AECDB;
+}
+
+#feet{
+    background-color: #2c3e50;
+}
+
+.feet-text{
+    color: #bdc3c7;
+}
+
+p{
+    margin: 0px;
+}
+
+.box{
+    position: relative;
+}
+
+.carousel-caption{
+    padding-bottom: 160px;
+    text-shadow: 1.5px 1.5px 2px #2c3e50;
+
+
+}
+
+.select-city{
+    font-size: 25px;
+    text-align: center;
+}
+
+.info{
+    padding-bottom: 0;
+}
+
+.cities{
+    margin: 2px;
+}
+
+.city-list{
+    margin-top: 5px;
+}
+
+article {
+    border: none;
+}
+
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+  }
+  
+  .carousel-fade .carousel-inner .active {
+    opacity: 1;
+  }
+  
+  .carousel-fade .carousel-inner .active.left,
+  .carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  .carousel-fade .carousel-inner .next.left,
+  .carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+  }
+  
+  .carousel-fade .carousel-control {
+    z-index: 2;
+  }
+
+.map{
+    width: 100%;
+    height: 400px;
+}
+
+.flash {
+	background-color:#6a89cc;
+	width:100%;
+	text-decoration: none;
+}
+
+.image-resize{
+    max-height: 180px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.image-size{
+    max-height: 420px;
+}

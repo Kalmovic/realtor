@@ -1,0 +1,11 @@
+<title>New City</title>
+{% extends "main.html" %} {% block content %}
+<h1>New City</h1>
+
+<form action="{{url_for('newCity')}}" method = "post">
+    <label for="name">Name:</label>
+    <input type ="text" size="30" name="name">
+    <button type="submit" class="btn btn-default" id="submit" type="submit">Create</button>
+
+</form>
+{% endblock %}

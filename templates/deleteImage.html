@@ -1,0 +1,31 @@
+<title>Delete Image</title>
+{% extends "main.html" %} {% block content %}
+
+
+        <h2> Are you sure you want to delete {{image}}? </h2>
+
+        <form action="#" method = 'post'>
+
+
+            <a href ="{{url_for('delete_image', city_id = city.id, immobile_id = i.id, image=filename)}}" method = 'post'>
+                <button class="btn btn-danger">
+                    <i class="material-icons">
+                        delete
+                    </i>
+                    Delete city
+                </button>
+            </a>
+
+        </form>
+
+
+            <a href = "{{url_for('get_gallery', filename=filename, city_id=city.id, immobile_id=i.id)}}">
+                <button class="btn btn-info">
+                    <i class="material-icons">
+                            close
+                    </i>
+                    Cancel
+                </button>
+            </a>
+
+            {% endblock %}

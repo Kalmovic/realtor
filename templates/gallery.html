@@ -1,0 +1,42 @@
+<title>Immobile Galery</title>
+{% extends "main.html" %} {% block content %}
+    <h1>Image Gallery from {{i.address}}</h1>
+    <hr>
+    <a href = "{{url_for('upload_page', city_id = city.id, immobile_id = i.id)}}">
+        <button class="btn btn-info">
+            <i class="material-icons">
+                add_circle_outline
+            </i>
+            Upload images
+        </button>
+    </a>
+    <a href = "{{url_for('showImmobileDetails', city_id = city.id, immobile_id = i.id)}}">
+        <button class="btn btn-success">
+            <i class="material-icons">
+                done
+            </i>
+            Done
+        </button>
+    </a>
+    <div class="row">
+        {% for image in image_names %}
+        <section class="col-md-4 text-center">
+            <picture>
+                <img src="{{url_for('send_image', filename=image)}}" class="img-responsive image-resize">
+            </picture>
+            <div>
+                <a href = "{{url_for('delete_image', city_id = city.id, immobile_id = i.id, image=image)}}">
+                    <button class="btn btn-danger">
+                        <i class="material-icons">
+                            delete
+                        </i>
+                        Delete image
+                    </button>
+                </a>
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+    <br>
+    
+    {% endblock %}

@@ -1,0 +1,13 @@
+<title>Image Upload</title>
+{% extends "main.html" %} {% block content %}
+<header class="navbar">
+  <form action="{{url_for('upload', city_id = city_id.id, immobile_id = immobile_id.id)}}" method="POST" enctype="multipart/form-data" >
+      <span class="btn btn-default btn-file">
+        Browse <input type="file" name="file" accept="image/*" multiple>
+      </span>
+
+    <input type="submit" value="Upload your image" class="btn btn-primary">
+  </form>
+</header>
+
+{% endblock %}

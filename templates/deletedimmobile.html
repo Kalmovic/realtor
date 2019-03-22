@@ -1,0 +1,27 @@
+<title>Delete Property</title>
+{% extends "main.html" %} {% block content %}
+
+        <h2> Are you sure you want to delete this immobile? </h2>
+
+        <form action="#" method = 'post'>   
+            <a href ="{{url_for('deleteImmobile', city_id = city_id, immobile_id=item.id) }}" method = 'post'>
+                <button class="btn btn-danger">
+                    <i class="material-icons">
+                        delete
+                    </i>
+                    Delete city
+                </button>
+            </a>
+
+        </form>
+
+        <a href = "{{url_for('showImmobile', city_id=city_id)}}">
+            <button class="btn btn-info">
+                <i class="material-icons">
+                        close
+                </i>
+                Cancel
+            </button>
+        </a>
+
+        {% endblock %}

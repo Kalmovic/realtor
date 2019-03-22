@@ -1,0 +1,58 @@
+<title>Property Details</title>
+{% extends "main.html" %} {% block content %}
+        
+            <header>
+                <h1>{{imm.address}}</h1>
+                <p>Have a glimpse of this beautiful place</p>
+                <a href="{{url_for('showImmobile', city_id = city.id)}}">
+                    <button class="btn btn-link">
+                        <i class="material-icons">
+                            arrow_back_ios
+                        </i>
+                        
+                    </button>
+                </a>
+            </header>
+            <div class="row">
+                <header class="box">
+                    <div class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{{url_for('static', filename='headerimage5.jpg')}}" class="img-responsive image-size">
+                            </div>
+                            {% for image in image_names %}
+                            <div class="item">
+                                    <img src="{{url_for('send_image', filename=image)}}" class="img-responsive image-size">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <a href = "{{url_for('ImmobileInfoJSON', city_id = city.id, immobile_id = imm.id)}}">
+                <button class="btn btn-info">
+                    <i class="material-icons">
+                        location_searching
+                    </i>
+                    JSON
+                </button>
+            </a>
+            <br>
+            <div class="row">
+                <div class="col-md-9">
+                    <div>
+                        <iframe width="100%" height="200px" src="https://maps.google.com/maps?width=100%&amp;&amp;hl=en&amp;q={{imm.address}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-3 info">
+                    <div>
+                        <h4>{{imm.description}}</h4>
+                        <h4>{{imm.squarefeet}}</h4>
+                        <h4>{{imm.bedrooms}}</h4>
+                        <h4>{{imm.bathrooms}}</h4>
+                    </div>
+                </div>
+            </div>
+            
+
+            {% endblock %}

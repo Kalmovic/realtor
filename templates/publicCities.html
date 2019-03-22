@@ -1,0 +1,126 @@
+<title>Public Cities</title>
+{% extends "main.html" %} {% block content %}
+
+            <aside role="complementary" class="col-md-4">
+                <h2>Cities available:</h2>
+                {% for city in cities %}
+                <div>
+                    <a href="{{url_for('showImmobile', city_id = city.id)}}">
+                        <h3 class="city-list text-left">{{city.name}}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+                <a href = "{{url_for('cityJSON')}}">
+                    <button class="btn btn-info">
+                        <i class="material-icons">
+                            location_searching
+                        </i>
+                        JSON
+                    </button>
+                </a>
+            </aside>
+            <div class="col-md-8">
+                <div class="row">
+            <header class="box">
+                <div class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner backheader">
+                        <div class="item active">
+                            <img src="{{url_for('static', filename='headerimage1.jpg')}}" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h1>
+                                    Your next living place
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{url_for('static', filename='headerimage2.jpg')}}" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h1>
+                                    Your next living place
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{url_for('static', filename='headerimage3.jpg')}}" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h1>
+                                    Your next living place
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{url_for('static', filename='headerimage4.jpg')}}" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h1>
+                                    Your next living place
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{url_for('static', filename='headerimage5.jpg')}}" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h1>
+                                    Your next living place
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{url_for('static', filename='headerimage6.jpg')}}" class="img-responsive">
+                            <div class="carousel-caption">
+                                    <h1>
+                                        Your next living place
+                                    </h1>
+                                </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </header>
+            <br>
+            <div class="row">
+                    <div class="col-md-4">
+                           
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="select-city">Select any city</h2>
+                        <br>
+                    </div>
+                    <div class="col-md-4 text-right">
+                            {%if 'username' not in session %}
+                            <a href="{{url_for('showLogin')}}" class="feet-login">
+                                <button class="btn btn-link">
+                                    <i class="material-icons">
+                                        person_outline
+                                    </i>
+                                    Log in
+                                </button>
+                            </a>
+                            {% endif %}
+                            {%if 'username' in session %}
+                            <a href="{{url_for('disconnect')}}">
+                                <button class="btn btn-link">
+                                    <i class="material-icons">
+                                        person_outline
+                                    </i>
+                                    Log off
+                                </button>
+                            </a>
+                            {% endif %}
+                    </div>
+                </div>
+                <div class = 'flash'>
+                        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+          
+                  <ul>
+                  {% for message in messages %}
+                      <li> <strong> {{ message }} </strong> </li>
+                  {% endfor %}
+                  </ul>
+                  {% endif %}
+                  {% endwith %}
+                  </div>
+            
+{% endblock %}
+            

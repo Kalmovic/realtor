@@ -1,0 +1,33 @@
+<html>
+
+<body>
+
+<a href="{{url_for('showCities')}}">Show all cities</a>
+
+<h1>{{city.name}}</h1>
+
+<a href="{{url_for('newImmobile', city_id = city.id) }}">Create new immobile</a>
+{% for i in imms %}
+
+<div>
+
+</br><br>
+{{i.address}}<br>
+{{i.description}}<br>
+{{i.squarefeet}}<br>
+{{i.bedrooms}}<br>
+{{i.bathrooms}}<br>
+<a href='{{url_for('editImmobile', city_id = city.id, immobile_id = i.id) }}'>Edit</a>
+</br>
+<a href = '{{url_for('deleteImmobile', city_id = city.id, immobile_id = i.id) }}'>Delete</a>
+
+<br>
+<br>
+
+</div>
+
+
+{% endfor %}
+</body>
+
+</html>
